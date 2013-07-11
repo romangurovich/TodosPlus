@@ -1,4 +1,12 @@
 Todos::Application.routes.draw do
+  get "main/index"
+  scope 'api' do
+    resources :tasks
+  end
+  
+  root to: 'main#index'
+  get '*path', to: 'main#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
