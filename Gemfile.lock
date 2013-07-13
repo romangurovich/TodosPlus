@@ -58,6 +58,9 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    gon (4.1.1)
+      actionpack (>= 2.3.0)
+      json
     haml (4.0.3)
       tilt
     haml-rails (0.4)
@@ -155,6 +158,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
+  gon
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails

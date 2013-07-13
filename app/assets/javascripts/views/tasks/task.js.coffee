@@ -7,21 +7,21 @@ class Todos.Views.Task extends Backbone.View
     'blur .edit': 'close'
 
   intialize: ->
-    this.listenTo(@model, 'change', this.render)
+    @listenTo(@model, 'change', @render)
 
   render: ->
-    this.$el.html(@template(@model.attributes))
-    this.$input = this.$('edit')
-    this
+    @$el.html(@template(@model.attributes))
+    @$input = @$('edit')
+    @
 
   edit: ->
-    this.$el.addClass('editing')
-    this.$input.focus()
+    @$el.addClass('editing')
+    @$input.focus()
 
   close: ->
-    value = this.$input.val().trim()
+    value = @$input.val().trim()
     @model.save({title: value}) if value
-    this.$el.removeClass('editing')
+    @$el.removeClass('editing')
 
   updateOnEnter: (e) ->
-    this.close() if e.which == ENTER_KEY
+    @close() if e.which == ENTER_KEY

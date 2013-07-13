@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'rspec-rails'
 gem 'backbone-on-rails'
 gem 'haml-rails'
+gem 'gon'
 
 group :development do
   gem 'better_errors'
