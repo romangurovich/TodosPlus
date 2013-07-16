@@ -6,11 +6,12 @@ class Todos.Views.Task extends Backbone.View
     'keypress .edit': 'updateOnEnter'
     'blur .edit': 'close'
 
-  intialize: ->
+  initialize: ->
     @listenTo(@model, 'change', @render)
 
   render: ->
     @$el.html(@template(@model.attributes))
+    console.log @el
     @$input = @$('edit')
     @
 
@@ -24,4 +25,4 @@ class Todos.Views.Task extends Backbone.View
     @$el.removeClass('editing')
 
   updateOnEnter: (e) ->
-    @close() if e.which == ENTER_KEY
+    @close() if e.which == 13

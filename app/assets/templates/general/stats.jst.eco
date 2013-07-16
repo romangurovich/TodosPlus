@@ -1,4 +1,4 @@
-<span id="todo-count"><strong><%= remaining %></strong> <%= if remaining == 1 then 'task' else 'tasks' %> left</span>
+<span id="todo-count"><strong><%= @remaining %></strong> <%= if @remaining == 1 then 'task' else 'tasks' %> left</span>
 
 <ul id="filters">
   <li>
@@ -12,6 +12,6 @@
   </li>
 </ul>
 
-<% if completed: %>
-  <button id="clear-completed">Clear completed (<%= completed %>)</button>
+<% if @completed: %>
+  <button id="clear-completed">Clear completed (<%= @completed %>)</button>
 <% end %>

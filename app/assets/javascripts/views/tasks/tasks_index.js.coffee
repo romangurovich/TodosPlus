@@ -1,9 +1,11 @@
 class Todos.Views.TasksIndex extends Backbone.View
   template: JST['tasks/index']
 
-  el: $('#todo-list')
+  tagName: 'ul'
+
+  id: 'todo-list'
   
-  intialize: ->
+  initialize: ->
     @listenTo(@collection, 'reset', @addAll)
     @listenTo(@collection, 'add', @addOne)
 
@@ -14,3 +16,8 @@ class Todos.Views.TasksIndex extends Backbone.View
   addAll: ->
     @$el.empty()
     @collection.each(@addOne, @)
+
+  render: ->
+    @addAll()
+    console.log @el
+    @

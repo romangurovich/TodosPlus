@@ -8,8 +8,11 @@ class Todos.Routers.Tasks extends Backbone.Router
     @collection = new Todos.Collections.Tasks(gon.tasks)
 
   index: ->
-    tasksView = new Todos.Collections.Tasks(collection: @collection)
+    tasksView = new Todos.Views.TasksIndex(collection: @collection)
     @$tasklist.html(tasksView.render().el)
+
+    statsView = new Todos.Views.Stats(collection: @collection)
+    @$footer.html(statsView.render().el)
 
 
 

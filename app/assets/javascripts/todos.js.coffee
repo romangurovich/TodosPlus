@@ -3,7 +3,10 @@ window.Todos =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  Store: {}
+  initialize: ->
+    new Todos.Routers.Tasks()
+    Backbone.history.start()
 
 $(document).ready ->
   Todos.initialize()
