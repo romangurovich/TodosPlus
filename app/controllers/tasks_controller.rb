@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   respond_to :json
 
   def index
-    resond_with Task.all
+    respond_with Task.all
   end
 
   def show

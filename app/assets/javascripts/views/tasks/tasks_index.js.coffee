@@ -8,6 +8,7 @@ class Todos.Views.TasksIndex extends Backbone.View
   initialize: ->
     @listenTo(@collection, 'reset', @addAll)
     @listenTo(@collection, 'add', @addOne)
+    console.log "hello"
 
   addOne: (task) =>
     newTaskView = new Todos.Views.Task(model: task)
@@ -19,5 +20,4 @@ class Todos.Views.TasksIndex extends Backbone.View
 
   render: ->
     @addAll()
-    console.log @el
     @

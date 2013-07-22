@@ -8,7 +8,7 @@ class Todos.Collections.Tasks extends Backbone.Collection
     -task.get('updated_at')
 
   completed: ->
-    this.where(completed: true)
+    @where(completed: true)
 
   remaining: ->
-    this.without.apply(this, this.completed())
+    @without.apply(@, @completed())

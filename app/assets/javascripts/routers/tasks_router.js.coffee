@@ -4,15 +4,22 @@ class Todos.Routers.Tasks extends Backbone.Router
   initialize: ->
     @$main = $('#main')
     @$footer = $('#footer')
+
+    @$newTask = $('#new-task')
     @$tasklist = $('#tasklist')
-    @collection = new Todos.Collections.Tasks(gon.tasks)
+
+    @tasks = new Todos.Collections.Tasks(gon.tasks)
+
+    @tasksView = new Todos.Views.TasksIndex(collection: @tasks)
+    @statsView = new Todos.Views.Stats(collection: @tasks)
+    @newTaskView = new Todos.Views.NewTask(collection: @tasks)
+
 
   index: ->
-    tasksView = new Todos.Views.TasksIndex(collection: @collection)
-    @$tasklist.html(tasksView.render().el)
+    @$newTask.html(@newTaskView.render().el)
+    @$tasklist.html(@tasksView.render().el)
+    @$footer.html(@statsView.render().el)
 
-    statsView = new Todos.Views.Stats(collection: @collection)
-    @$footer.html(statsView.render().el)
 
 
 

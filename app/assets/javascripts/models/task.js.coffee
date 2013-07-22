@@ -3,12 +3,22 @@ class Todos.Models.Task extends Backbone.Model
     title: ""
     completed: false
 
-  toggle: ->   
-    this.save(completed: not this.get('completed'))
+  urlRoot: '/api/tasks'
 
-  parse: (response) ->
+  toggle: ->   
+    @save(completed: not @get('completed'))
+
+  parse: (response, options) ->
+    console.log response
     c = new Date(Date.parse(response.created_at))
     u = new Date(Date.parse(response.updated_at))
     response.created_at = c
     response.updated_at = u
+    console.log response
     response
+
+  toJSON: ->
+    attrs = _.clone(@attributes);
+    delete attrs.created_at
+    delete attrs.updated_at
+    attrs

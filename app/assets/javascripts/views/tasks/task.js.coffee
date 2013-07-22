@@ -11,8 +11,7 @@ class Todos.Views.Task extends Backbone.View
 
   render: ->
     @$el.html(@template(@model.attributes))
-    console.log @el
-    @$input = @$('edit')
+    @$input = @$('.edit')
     @
 
   edit: ->
@@ -21,6 +20,7 @@ class Todos.Views.Task extends Backbone.View
 
   close: ->
     value = @$input.val().trim()
+    console.log @model
     @model.save({title: value}) if value
     @$el.removeClass('editing')
 

@@ -10,7 +10,7 @@ class Todos.Views.Stats extends Backbone.View
 
     if @collection.length
       @$el.html(@template({completed: completed, remaining: remaining}))
-      this.$('#filters li a')
+      @$('#filters li a')
         .removeClass('selected')
         .filter('[href="#/' + ( Todos.Store.TodoFilter || '' ) + '"]')
         .addClass('selected');
