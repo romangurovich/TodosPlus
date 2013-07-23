@@ -7,6 +7,8 @@ class Todos.Views.TasksIndex extends Backbone.View
   
   initialize: ->
     @listenTo(@collection, 'reset', @addAll)
+    @listenTo(@collection, 'sort', @addAll)
+    @listenTo(@collection, 'change', @addAll)
     @listenTo(@collection, 'add', @addOne)
     console.log "hello"
 

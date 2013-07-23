@@ -3,6 +3,8 @@ class Todos.Views.Stats extends Backbone.View
 
   initialize: ->
     @listenTo(@collection, 'all', @render)
+    @listenTo(@collection, 'change:completed', @filterOne);
+    @listenTo(@collection,'filter', @filterAll);
 
   render: ->
     completed = @collection.completed().length;
@@ -18,3 +20,10 @@ class Todos.Views.Stats extends Backbone.View
       @$el.hide()
 
     @
+
+  filterOne : (task) =>
+    task.trigger('visible')
+
+  filterAll : ->
+    @collection.each(@filterOne, @)
+

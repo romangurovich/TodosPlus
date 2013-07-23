@@ -1,6 +1,7 @@
 class Todos.Routers.Tasks extends Backbone.Router
   routes:
-    '': 'index'
+    '*filter': 'setFilter'
+
   initialize: ->
     @$main = $('#main')
     @$footer = $('#footer')
@@ -20,6 +21,8 @@ class Todos.Routers.Tasks extends Backbone.Router
     @$tasklist.html(@tasksView.render().el)
     @$footer.html(@statsView.render().el)
 
-
-
-
+  setFilter: (param) ->
+    param = param.trim() if param
+    Todos.Store.TodoFilter = param || ''
+    @tasks.trigger('filter')
+    @index()

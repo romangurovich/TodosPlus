@@ -5,7 +5,7 @@ class Todos.Collections.Tasks extends Backbone.Collection
   url: '/api/tasks'
 
   comparator: (task) ->
-    -task.get('updated_at')
+    task.get('updated_at')
 
   completed: ->
     @where(completed: true)
