@@ -1,6 +1,7 @@
 class Todos.Views.Task extends Backbone.View
   tagName: 'li'
   template: JST['tasks/task']
+  
   events:
     'dblclick label': 'edit'
     'keypress .edit': 'updateOnEnter'
@@ -28,7 +29,6 @@ class Todos.Views.Task extends Backbone.View
 
   close: ->
     value = @$input.val().trim()
-    console.log @model
     if value
       @model.save({title: value})
     else

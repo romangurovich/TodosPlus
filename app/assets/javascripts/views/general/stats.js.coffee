@@ -1,5 +1,7 @@
 class Todos.Views.Stats extends Backbone.View
   template: JST['general/stats']
+  events:
+    'click #clear-completed': 'clearCompleted'
 
   initialize: ->
     @listenTo(@collection, 'all', @render)
@@ -26,4 +28,8 @@ class Todos.Views.Stats extends Backbone.View
 
   filterAll : ->
     @collection.each(@filterOne, @)
+
+  clearCompleted: ->
+    _.invoke(@collection.completed(), 'destroy')
+    false
 

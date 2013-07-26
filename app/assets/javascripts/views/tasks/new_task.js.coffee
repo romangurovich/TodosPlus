@@ -1,5 +1,7 @@
 class Todos.Views.NewTask extends Backbone.View
   template: JST['tasks/new']
+  id: 'new-task'
+  
   events:
     'keypress input#new-todo': 'createOnEnter'
 
