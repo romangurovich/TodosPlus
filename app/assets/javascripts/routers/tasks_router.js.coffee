@@ -18,7 +18,6 @@ class Todos.Routers.Tasks extends Backbone.Router
 
 
   index: ->
-    
     @$header.append(@newTaskView.render().el)
     @$main.append(@toggleTasksView.render().el)
     @$main.append(@tasksView.render().el)

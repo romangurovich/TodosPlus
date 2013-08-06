@@ -13,6 +13,7 @@ class Todos.Views.Stats extends Backbone.View
     remaining = @collection.remaining().length;
 
     if @collection.length
+      @$el.show()
       @$el.html(@template({completed: completed, remaining: remaining}))
       @$('#filters li a')
         .removeClass('selected')
